@@ -27,13 +27,13 @@ export default function AvailablePlaces({ onSelectPlace }) {
             position.coords.latitude,
             position.coords.longitude
           );
-          setAvailablePlaces(resData.places);
+          setAvailablePlaces(sortedPlaces);
           setIsFetching(false);
         });
 
         // This setState has to be within `try` so that when we make it to the end
         //  of this block, all the data will be there.
-        setAvailablePlaces(resData.places);
+        // setAvailablePlaces(resData.places);
       } catch (error) {
         setError({
           message:
