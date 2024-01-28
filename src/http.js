@@ -10,6 +10,18 @@ export async function fetchAvailablePlaces() {
   return resData.places;
 }
 
+export async function fetchUserPlaces() {
+  const response = await fetch("http://localhost:3000/user-places");
+  const resData = await response.json();
+
+  // In a case of error as below, it will crash the application.
+  if (!response.ok) {
+    throw new Error("Failed to fetch user places");
+  }
+
+  return resData.places;
+}
+
 export async function updateUserPlaces(places) {
   // fetch can also send data, not just "fetching" them as the name implies.
   const response = await fetch("http://localhost:3000/user-places", {
